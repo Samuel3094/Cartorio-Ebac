@@ -1,6 +1,6 @@
-#include <stdio.h> //Biblioteca de comunicaÁ„o como usu·rio 
-#include <stdlib.h> //Biblioteca de alocaÁ„o de espaÁos na memoria 
-#include <locale.h> //biblioteca de alocaÁıes de texto por regi„o 
+#include <stdio.h> //Biblioteca de comunica√ß√£o como usu√°rio 
+#include <stdlib.h> //Biblioteca de aloca√ß√£o de espa√ßos na memoria 
+#include <locale.h> //biblioteca de aloca√ß√µes de texto por regi√£o 
 #include <string.h> //Biblioteca que manipula as strings
 
 int registro()
@@ -16,11 +16,11 @@ int registro()
 	
 	strcpy(arquivo, cpf); //copia o valor da str cpf para a str arquivo 
 	
-	FILE *file; //chama a funÁ„o file para criar um arquivo 
+	FILE *file; //chama a fun√ß√£o file para criar um arquivo 
 	file = fopen(arquivo,"w"); //cria o arqivo
 	
 	fprintf(file,cpf); //imprime o valor de cpf dentro do arquivo 
-	fclose(file);//fecha essa operaÁ„o no arquivo 
+	fclose(file);//fecha essa opera√ß√£o no arquivo 
 	
 	file = fopen(arquivo, "a");
 	fprintf(file, ",");
@@ -72,11 +72,11 @@ int consulta()
 	
 	if(file == NULL)
 	{
-		printf("N„o foi possivel abrir o arquivo, n„o localizado.\n");
+		printf("N√£o foi possivel abrir o arquivo, n√£o localizado.\n");
 	}
 	while(fgets(conteudo,300,file)!= NULL)
 	{
-		printf("Essas s„o as informaÁıes do usu·rio: ");
+		printf("Essas s√£o as informa√ß√µes do usu√°rio: ");
 		printf("%s", conteudo);
 		printf("\n\n");
 	}
@@ -95,15 +95,14 @@ int deletar()
 	
 	if(file == NULL)
 	{
-		printf("O usuario n„o se encontra no sistema\n");
+		printf("O usuario n√£o se encontra no sistema\n");
 		system("pause");
 		fclose(file);
 	}
 	else
 	{
-		fclose(file);
 		remove(cpf);
-		printf("Usu·rio deletado \n");
+		printf("Usu√°rio deletado \n");
 		system("pause");
 	}
 	
@@ -112,47 +111,66 @@ int main()
 	{
 	
 	int opcao=0;
-	int x=1;x=1;
+	int x=1;
+	char senhadg[]="a";
+	int comparacao;
 	
-	for(x=1;x=1;)
+	printf("### Cart√≥rio da Ebac\n\n");
+	printf("Login de Administrador\n\nDigite sua senha: ");
+	scanf("%s",senhadg);
+	
+	comparacao = strcmp(senhadg,"admin");
+	
+	if(comparacao == 0)
 	{
-			
-		setlocale(LC_ALL, "Portuguese");
-		system("cls");
-		printf("Escolha a opÁ„o desejada do menu:\n\n");
-		printf("\t1 - Registrar Nomes\n ");
-		printf("\t2 - Consultar nomes\n ");
-		printf("\t3 - Deletar nomes\n \n ");
-		printf("\t4 - Sair do Sistema\n\n");
-		printf("OpÁ„o: "); //fim do menu
 	
-		scanf("%d", &opcao);
+	
+	
+		for(x=1;x=1;)
+		{			
+				
+			setlocale(LC_ALL, "Portuguese");
+			system("cls");
 		
-		system("cls");
+			printf("### Cart√≥rio da Ebac\n\n");
+			printf("Escolha a op√ß√£o desejada do menu:\n\n");
+			printf("\t1 - Registrar Nomes\n ");
+			printf("\t2 - Consultar nomes\n ");
+			printf("\t3 - Deletar nomes\n \n ");
+			printf("\t4 - Sair do Sistema\n\n");
+			printf("Op√ß√£o: "); //fim do menu
 	
-		switch(opcao)
-		{
-			case 1:
-				registro();
-			    break;
+			scanf("%d", &opcao);
+		
+			system("cls");
+	
+			switch(opcao)
+			{
+				case 1:
+					registro();
+				    break;
 			
-			case 2:
-				consulta();
-				break;
+				case 2:
+					consulta();
+					break;
 				
 			
-			case 3:
-				deletar();
-				break;
+				case 3:
+					deletar();
+					break;
 				
-			case 4:
-			printf("Obrigado por utilizar o sistema\n");
-			return 0;
-			break;	
+				case 4:
+					printf("Obrigado por utilizar o sistema\n");
+					return 0;
+					break;	
 			
-			default:
-				printf("Esta opc„o n„o est· disponivel \n");
-				system("pause");
-				break;
+				default:
+					printf("Esta opc√£o n√£o est√° disponivel \n");
+					system("pause");
+					break;
+			}
 		}
-	}}
+	}
+	else
+		printf("Senha Incorreta");
+}
