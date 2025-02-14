@@ -1,2 +1,2 @@
-# Cartorio-Ebac
-Projeto criado para aprender lógica de programção e resolução de problemas no curso de tecnologia da Ebac
+# Ebac
+Repositorio Criado para guardar os projetos realizados durante o curso
